@@ -1,0 +1,21 @@
+{
+  "name": "inventory-management-website",
+  "version": "1.0.0",
+  "description": "In this Inventory-Management-Website project we are going to build this on the basis of Model View Controller in Node.js",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nilesh Suryavanshi",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "express-ejs-layouts": "^2.5.1",
+    "express-validator": "^7.2.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.7",
+    "path": "^0.12.7"
+  }
+}
