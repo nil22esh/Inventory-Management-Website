@@ -3,12 +3,13 @@ import ProductModel from "../models/productModel.js";
 class ProductsController {
   getProducts(req, res, next) {
     var products = ProductModel.getAll();
-    res.render("products", { products });
+    res.render("products", { products, userEmail: req.session.userEmail });
   }
 
   getAddProduct(req, res, next) {
     res.render("newProduct", {
       errorMessage: null,
+      userEmail: req.session.userEmail,
     });
   }
 
@@ -17,7 +18,7 @@ class ProductsController {
     const imageUrl = "images/" + req.file.filename;
     ProductModel.add(name, desc, price, imageUrl);
     var products = ProductModel.getAll();
-    res.render("products", { products });
+    res.render("products", { products, userEmail: req.session.userEmail });
   }
 
   getUpdateProductView(req, res, next) {
@@ -28,6 +29,7 @@ class ProductsController {
       res.render("updateProduct", {
         product: productFound,
         errorMessage: null,
+        userEmail: req.session.userEmail,
       });
     }
     // 2. else return errors.
@@ -39,7 +41,7 @@ class ProductsController {
   postUpdateProduct(req, res) {
     ProductModel.update(req.body);
     var products = ProductModel.getAll();
-    res.render("products", { products });
+    res.render("products", { products, userEmail: req.session.userEmail });
   }
 
   deleteProduct(req, res) {
